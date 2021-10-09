@@ -1,0 +1,142 @@
+/*------------------Stage-------------------------*/
+.stage{
+margin-left: -180;
+
+}
+.stage h1
+{
+  margin-top: 0px;
+  margin-bottom: 50px;
+  margin-left:500px;
+  margin-right: -250px;
+}
+.stage h5
+{
+  text-align: left;
+  margin-top: 0px;
+  margin-bottom: 30px;
+  margin-left:-90px;
+}
+.stage p
+{
+  margin-bottom: 30px;
+  margin-left:-20px;
+  margin-right: -2200px;
+  letter-spacing: normal;
+  float: left;
+  font-size: 1.1em;
+
+}
+/*-----------------Accordion----------------------------*/
+import url("https://fonts.googleapis.com/css?family=Karla|Space+Mono");
+
+:root {
+  --contentHeight: 30vh;
+  --sectionWidth: 700px;
+}
+
+* {
+  outline: 0;
+  box-sizing: border-box;
+}
+
+
+
+section {
+  max-width: var(--sectionWidth);
+  color: #fff;
+}
+
+summary {
+  display: block;
+  cursor: pointer;
+  padding: 10px;
+  font-family: "Space Mono", monospace;
+  font-size: 22px;
+  transition: .3s;
+  border-bottom: 2px solid;
+  user-select: none;
+}
+
+details > div {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+  height: 100%;
+  user-select: none;
+  padding: 0 20px;
+  font-family: "Karla", sans-serif;
+  line-height: 1.5;
+}
+
+
+details > div > p {
+  flex: 1;
+  background: white;
+  color: black;
+}
+
+details[open] > summary {
+   color: red;
+}
+details > div > img {
+  align-self: flex-start;
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+
+@media (min-width: 768px) {
+  details[open] > div > p {
+    opacity: 0;
+    animation-name: showContent;
+    animation-duration: 0.6s;
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  details[open] > div {
+    animation-name: slideDown;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+  }
+
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+  }
+
+  to {
+    opacity: 1;
+    height: var(--contentHeight);
+    padding: 20px;
+  }
+}
+
+@keyframes showImage {
+  from {
+    opacity: 0;
+    clip-path: inset(50% 0 50% 0);
+    transform: scale(0.4);
+  }
+
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes showContent {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
